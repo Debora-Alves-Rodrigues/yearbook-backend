@@ -8,8 +8,18 @@ app.get('/', (req, res) => {
   res.json({ mensagem: 'Yearbook API está no ar! 🎓' });
 });
 
+// 🎯 Desafio: crie a rota GET /status
+// Dica 1: siga o mesmo padrão da rota GET /
+// Dica 2: use new Date() para gerar o timestamp atual
+// Dica 3: a resposta deve ter o formato { status: 'ok', timestamp: ... }
+app.get('/status', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date()});
+});
+
 // inicia o servidor localmente — na Vercel essa parte é pulada
-if (process.env.VERCEL !== '1') {
+if (process.env.VERCEL !== '1') {S
   app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
   });
