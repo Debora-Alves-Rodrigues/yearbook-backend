@@ -49,7 +49,9 @@
       - `400` — Campos obrigatórios ausentes
       - `409` — Email já cadastrado
 
-       Autentica um aluno e retorna um token JWT.
+   ### POST /auth/login
+   
+    Autentica um aluno e retorna um token JWT.
 
     - **Autenticação:** Não
     - **Body:**
