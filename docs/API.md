@@ -164,6 +164,16 @@
     ```
    - **Resposta de sucesso:** `200 OK`
 
+   ```json
+    {
+      "nome": "Débora Alves",
+      "cidade": "Piura",
+      "frase":"Tudo posso Naquele que me fortalece",
+      "planosFuturos": "Ir para a faculdade",
+      "fotoURL": null,
+    }
+    ```
+
    - **Erros:**
       - `401` — Não logado
       - `403` — Tentando atualizar o perfil de outra pessoa
@@ -181,6 +191,68 @@
       - `401` — Não logado
       - `403` — Não é admin.
 
+   ## Mensagens
+
+   ### GET /mensagens
+
+    Lista todas as mensagens do mural
+
+    - **Autenticação:** Não
+    - **Body:** Nenhum
+
+    - **Resposta de sucesso:** `200 OK`
+
+    ```json
+    {
+      "idMensagem": 2,
+      "texto": "Boa tarde!",
+
+      autor{
+        "id": "4",
+        "nome": "Débora",
+        "fotoURL": null,
+      }
+    }
+    ```
+
+   ### POST /mensagens
+
+    Cria uma nova mensagem
+
+    - **Autenticação:** Bearer token
+    - **Body:** 
+
+    ```json
+    {
+      "texto": *Obrigatório,
+      "imagemUrl": null,
+    }
+    ```
+
+    - **Resposta de sucesso:** `201 - Recurso criado`
+    ```json
+    {
+      "texto": "Bom dia caros colegas!",
+      "imagemUrl": null,
+    }
+    ```
+
+    - **Erros:**
+      - `400` — Texto ausente
+      - `401` — Não logado
+
+   ### DELETE	/mensagens/:id
+
+    Exclui uma mensagem
+
+    - **Autenticação:** Bearer token
+    - **Body:** Nenhum
+
+    - **Erros:**
+      - `401` — Não logado
+      - `403` — Não é o dono ou admin.
+    
+    
   
 
 
